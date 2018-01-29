@@ -7,5 +7,5 @@ setup(name='simpletools',
       author='Marcin Rosinski',
       author_email='marcin@getsimpletools.com',
       license='BSD-3',
-      packages=['simpletools','serviceq'],
+      packages=['simpletools'],
       zip_safe=False)
