@@ -1,6 +1,5 @@
 import json, os, datetime, urllib, time, pika, inspect
 
-
 class ServiceQ:
 
     class PayloadProperties(object):
@@ -186,7 +185,7 @@ class ServiceQ:
         url = os.environ.get('CLOUDAMQP_URL',
                              'amqp://' + settings['username'] + ':' + settings['password'] + '@' +
                              settings['host'].replace('amqp://','') + '/' +
-                             urllib.quote_plus(settings['vhost']))
+                             urllib.parse.quote_plus(settings['vhost']))
 
         cls.__ampqParams = pika.URLParameters(url)
         cls.__ampqParams.socket_timeout = 5
