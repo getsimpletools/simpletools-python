@@ -11,8 +11,7 @@ class ServiceQ:
             self.__service_instance = service_instance
 
         def __call__(self, ch, method, properties, body):
-            payload = json.loads(body)
-
+            payload = json.loads(body.decode('utf-8'))
             self.__service_instance\
                 .set_last_request_method(method)\
                 .set_last_request_properties(properties)\
