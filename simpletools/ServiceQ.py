@@ -72,7 +72,7 @@ class ServiceQ:
         #todo listen on topic -- no_ack = True
 
         self.__channel.queue_declare(queue=self.__service, durable=True, auto_delete=False)
-        self.__channel.basic_consume(ServiceQ.ServiceRunner(callback, self), queue=self.__service, no_ack=False)
+        self.__channel.basic_consume(self.__service, ServiceQ.ServiceRunner(callback, self), auto_ack=False)
         self.__channel.start_consuming()
 
         return self
